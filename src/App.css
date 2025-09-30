@@ -1,0 +1,196 @@
+/* 게임 컨테이너 */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 게임 헤더 */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.start-button, .stop-button, .round-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-button {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  color: white;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+.stop-button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+}
+
+.stop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.round-button {
+  background: linear-gradient(45deg, #ff9a56, #ff6b35);
+  color: white;
+}
+
+.round-button:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 154, 86, 0.4);
+}
+
+.round-button.disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 게임 설명 */
+.game-instructions {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.game-instructions h3 {
+  margin-top: 0;
+  color: #4ecdc4;
+  font-size: 1.5rem;
+}
+
+.game-instructions ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.game-instructions li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border-left: 4px solid #4ecdc4;
+}
+
+/* 게임 캔버스 컨테이너 */
+.game-canvas-container {
+  margin: 20px 0;
+  border: 3px solid #4ecdc4;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.game-canvas {
+  display: block;
+  background: #1a1a2e;
+  cursor: crosshair;
+}
+
+/* 게임 정보 */
+.game-info {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.game-info h3 {
+  margin-top: 0;
+  color: #4ecdc4;
+  font-size: 1.5rem;
+}
+
+.game-info p {
+  margin: 10px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-info p:last-child {
+  border-bottom: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1300px) {
+  .game-canvas-container {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .game-canvas-container {
+    transform: scale(0.6);
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .game-instructions ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-canvas-container {
+    transform: scale(0.5);
+  }
+  
+  .game-header h1 {
+    font-size: 2rem;
+  }
+}
+
